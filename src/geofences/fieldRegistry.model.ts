@@ -24,7 +24,7 @@ export class FieldRegistry extends Model<FieldRegistry, FieldRegistryCreationAtt
   name: string;
 
   @ApiProperty({example: '139', description: 'Площадь учётная (га), площадь по данным учетной системы'})
-  @Column({type: DataType.INTEGER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   square: number;
 
   @ApiProperty({example: '139.01', description: 'Площадь виалон'})

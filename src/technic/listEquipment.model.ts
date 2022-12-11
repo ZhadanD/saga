@@ -5,7 +5,7 @@ interface ListEquipmentCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'listequipment', createdAt: false, updatedAt: false})
+@Table({tableName: 'list_equipment', createdAt: false, updatedAt: false})
 export class ListEquipment extends Model<ListEquipment, ListEquipmentCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})

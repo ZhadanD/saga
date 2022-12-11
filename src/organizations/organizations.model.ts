@@ -36,7 +36,7 @@ export class Organization extends Model<Organization, OrganizationCreationAttrs>
   durationOfActualShifts: string; // TODO фиг пойми зачем
 
   @ApiProperty({example: '', description: 'Фактическое время начала смены'})
-  @Column({type: DataType.STRING})
+  @Column({type: DataType.TIME})
   actualShiftStartTime: string; // TODO фиг пойми зачем
 
   @ApiProperty({example: 'Время московское, +3 GTM', description: 'Часовой пояс'})

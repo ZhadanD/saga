@@ -21,7 +21,7 @@ export class AgroOperations extends Model<AgroOperations, AgroOperationsCreation
   unitMeasurementTechnicalOperation: string;
 
   @ApiProperty({example: '7', description: 'Ширина обработки(м)'})
-  @Column({type: DataType.INTEGER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   processingWidth: number;
 
   @ApiProperty({example: '7', description: 'Скорость обработки (км/ч)'})
@@ -41,7 +41,7 @@ export class AgroOperations extends Model<AgroOperations, AgroOperationsCreation
   trailedEquipment: string;
 
   @ApiProperty({example: '54', description: 'Норма выработки ЕИ/смену'})
-  @Column({type: DataType.INTEGER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   productionRate: number;
 
   @ApiProperty({example: '6,77', description: 'Расценка руб/ЕИ'})

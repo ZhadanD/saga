@@ -5,7 +5,7 @@ interface AgriculturalObservationsCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'agriculturalObservations', createdAt: false, updatedAt: false})
+@Table({tableName: 'agricultural_observations', createdAt: false, updatedAt: false})
 export class AgriculturalObservations extends Model<AgriculturalObservations, AgriculturalObservationsCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
