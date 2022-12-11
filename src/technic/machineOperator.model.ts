@@ -5,7 +5,7 @@ interface MachineOperatorCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'machineOperators', createdAt: false, updatedAt: false})
+@Table({tableName: 'machine_operators', createdAt: false, updatedAt: false})
 export class MachineOperator extends Model<MachineOperator, MachineOperatorCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})

@@ -5,7 +5,7 @@ interface MonitoringSystemCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'monitoringSystem', createdAt: false, updatedAt: false})
+@Table({tableName: 'monitoring_system', createdAt: false, updatedAt: false})
 export class MonitoringSystem extends Model<MonitoringSystem, MonitoringSystemCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})

@@ -13,11 +13,11 @@ export class AgriculturalObservations extends Model<AgriculturalObservations, Ag
   id: bigint;
 
   @ApiProperty({example: '20,01,2022', description: 'Дата'})
-  @Column({type: DataType.STRING, allowNull: false})
+  @Column({type: DataType.DATE, allowNull: false})
   date: string;
 
   @ApiProperty({example: '15:26', description: 'Время'})
-  @Column({type: DataType.STRING, allowNull: false})
+  @Column({type: DataType.TIME, allowNull: false})
   time: string;
 
   @ApiProperty({example: '3054728:43:00', description: 'Координаты'})

@@ -6,7 +6,7 @@ interface CropRotationCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'cropRotation', createdAt: false, updatedAt: false})
+@Table({tableName: 'crop_rotation', createdAt: false, updatedAt: false})
 export class CropRotation extends Model<CropRotation, CropRotationCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
@@ -19,7 +19,7 @@ export class CropRotation extends Model<CropRotation, CropRotationCreationAttrs>
   name: bigint;
 
   @ApiProperty({example: '139', description: 'Площадь засева'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.INTEGER, allowNull: false})
   seedingArea: number;
 
   @ApiProperty({example: '2021', description: 'Сезон ( год уборки)'})
@@ -27,10 +27,10 @@ export class CropRotation extends Model<CropRotation, CropRotationCreationAttrs>
   season: string;
 
   @ApiProperty({example: '01,09,2020', description: 'Дата начала работ'})
-  @Column({type: DataType.STRING, allowNull: false})
+  @Column({type: DataType.DATE, allowNull: false})
   startDateOfWork: string;
 
   @ApiProperty({example: '30,10,2021', description: 'Дата окончания работ'})
-  @Column({type: DataType.STRING, allowNull: false})
+  @Column({type: DataType.DATE, allowNull: false})
   dateOfCompletionOfWorks: string;
 }

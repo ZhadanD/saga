@@ -6,16 +6,14 @@ import { MachineOperator } from "./machineOperator.model";
 import { Technic } from "./technic.model";
 import { MonitoringSystem } from "./monitoringSystem.model";
 import { AgroOperations } from "./agroOperations.model";
-import { SelfPropelledEquipment } from "./self-propelledEquipment.model";
-import { TrailedEquipment } from "./trailedEquipment.model";
+import { ListEquipment } from "./listEquipment.model";
 
 @Module({
   providers: [TechnicService],
   controllers: [TechnicController],
   imports: [
     SequelizeModule.forFeature(
-      [MachineOperator, Technic, MonitoringSystem, AgroOperations, SelfPropelledEquipment,
-        TrailedEquipment]
+      [MachineOperator, Technic, MonitoringSystem, AgroOperations, ListEquipment]
     )
   ],
   exports: [SequelizeModule],

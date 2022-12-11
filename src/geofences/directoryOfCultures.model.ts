@@ -5,7 +5,7 @@ interface DirectoryOfCulturesCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'directoryOfCultures', createdAt: false, updatedAt: false})
+@Table({tableName: 'directory_of_cultures', createdAt: false, updatedAt: false})
 export class DirectoryOfCultures extends Model<DirectoryOfCultures, DirectoryOfCulturesCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
@@ -24,12 +24,12 @@ export class DirectoryOfCultures extends Model<DirectoryOfCultures, DirectoryOfC
   @Column({type: DataType.STRING, allowNull: false})
   reproduction: string;
 
-  @ApiProperty({example: '250', description: 'Норма Высева кг/га'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @ApiProperty({example: '0,528', description: 'Норма Высева кг/га'})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   seedingRate: number;
 
   @ApiProperty({example: '32', description: 'Плановая урожайность ц/га'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   plannedYield: number;
 
   @ApiProperty({example: 'Озимая пшеница на зерно', description: 'Урожай'})

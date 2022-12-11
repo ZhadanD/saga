@@ -5,7 +5,7 @@ interface AgroOperationsCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'agroOperations', createdAt: false, updatedAt: false})
+@Table({tableName: 'agro_operations', createdAt: false, updatedAt: false})
 export class AgroOperations extends Model<AgroOperations, AgroOperationsCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
@@ -21,15 +21,15 @@ export class AgroOperations extends Model<AgroOperations, AgroOperationsCreation
   unitMeasurementTechnicalOperation: string;
 
   @ApiProperty({example: '7', description: 'Ширина обработки(м)'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.INTEGER, allowNull: false})
   processingWidth: number;
 
   @ApiProperty({example: '7', description: 'Скорость обработки (км/ч)'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.INTEGER, allowNull: false})
   processingSpeed: number;
 
   @ApiProperty({example: '2,7', description: 'Расход топлива (лт/га)'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   fuelConsumption: number;
 
   @ApiProperty({example: 'МТЗ1221', description: 'Основная единица'})
@@ -41,14 +41,14 @@ export class AgroOperations extends Model<AgroOperations, AgroOperationsCreation
   trailedEquipment: string;
 
   @ApiProperty({example: '54', description: 'Норма выработки ЕИ/смену'})
-  @Column({type: DataType.STRING, allowNull: false})
-  productionRate: string;
+  @Column({type: DataType.INTEGER, allowNull: false})
+  productionRate: number;
 
   @ApiProperty({example: '6,77', description: 'Расценка руб/ЕИ'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   pricing: number;
 
   @ApiProperty({example: '365,78', description: 'Тариф'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   rate: number;
 }

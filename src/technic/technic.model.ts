@@ -2,6 +2,7 @@ import { Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript
 import {ApiProperty} from "@nestjs/swagger";
 import { MachineOperator } from "./machineOperator.model";
 import { MonitoringSystem } from "./monitoringSystem.model";
+import { ListEquipment } from "./listEquipment.model";
 
 interface TechnicCreationAttrs {
   // TODO доделать интерфейс
@@ -24,7 +25,7 @@ export class Technic extends Model<Technic, TechnicCreationAttrs> {
   monitoringSystem: bigint;
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор модели техники'})
-  @ForeignKey(() => )
+  @ForeignKey(() => ListEquipment)
   @Column({type: DataType.BIGINT, allowNull: false})
   modelEquipment: bigint;
 
@@ -35,5 +36,5 @@ export class Technic extends Model<Technic, TechnicCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Прикрепление механизатора к технике'})
   @Column({type: DataType.STRING, allowNull: false})
-  attachmentOfTheMachineOperatorToTheEquipment: string;
+  attachmentOfTheMachineOperatorToTheEquipment: string; // TODO фиг пойми зачем
 }

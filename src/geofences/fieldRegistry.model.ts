@@ -8,7 +8,7 @@ interface FieldRegistryCreationAttrs {
   // TODO доделать интерфейс
 }
 
-@Table({tableName: 'fieldRegistry', createdAt: false, updatedAt: false})
+@Table({tableName: 'field_registry', createdAt: false, updatedAt: false})
 export class FieldRegistry extends Model<FieldRegistry, FieldRegistryCreationAttrs> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
@@ -28,7 +28,7 @@ export class FieldRegistry extends Model<FieldRegistry, FieldRegistryCreationAtt
   square: number;
 
   @ApiProperty({example: '139.01', description: 'Площадь виалон'})
-  @Column({type: DataType.NUMBER, allowNull: false})
+  @Column({type: DataType.DOUBLE, allowNull: false})
   vialonSquare: number;
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор культуры'})
