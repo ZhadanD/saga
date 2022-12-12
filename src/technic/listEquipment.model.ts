@@ -1,12 +1,8 @@
 import { Column, DataType, Model, Table } from "sequelize-typescript";
 import {ApiProperty} from "@nestjs/swagger";
 
-interface ListEquipmentCreationAttrs {
-  // TODO доделать интерфейс
-}
-
 @Table({tableName: 'list_equipment', createdAt: false, updatedAt: false})
-export class ListEquipment extends Model<ListEquipment, ListEquipmentCreationAttrs> {
+export class ListEquipment extends Model<ListEquipment> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
   @Column({type: DataType.BIGINT, unique: true, autoIncrement: true, primaryKey: true})
