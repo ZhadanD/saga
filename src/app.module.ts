@@ -5,6 +5,8 @@ import { UsersModule } from './users/users.module';
 import { OrganizationsModule } from './organizations/organizations.module';
 import { GeofencesModule } from './geofences/geofences.module';
 import { TechnicModule } from './technic/technic.module';
+import { AuthModule } from './auth/auth.module';
+import { RolesModule } from "./roles/roles.module";
 
 @Module({
   imports: [
@@ -25,6 +27,8 @@ import { TechnicModule } from './technic/technic.module';
     OrganizationsModule,
     GeofencesModule,
     TechnicModule,
+    AuthModule,
+    RolesModule,
   ],
   controllers: [],
   providers: [],

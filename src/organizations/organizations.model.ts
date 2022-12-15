@@ -20,7 +20,7 @@ export class Organization extends Model<Organization, OrganizationCreationAttrs>
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор подразделения'})
   @ForeignKey(() => Organization)
-  @Column({type: DataType.BIGINT, allowNull: false})
+  @Column({type: DataType.BIGINT, allowNull: false}) // TODO убрать запрет на пустоту
   divisions: bigint;
 
   @ApiProperty({example: 'с 07:00 до 19:00', description: 'Дневная смена'})

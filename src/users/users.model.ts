@@ -1,21 +1,11 @@
-import { Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
+import { BelongsToMany, Column, DataType, ForeignKey, Model, Table } from "sequelize-typescript";
 import {ApiProperty} from "@nestjs/swagger";
 import { Organization } from "../organizations/organizations.model";
-
-interface UserCreationAttrs {
-  login: string;
-  password: string;
-  lastName: string;
-  firstName: string;
-  patronymic: string;
-  post: string;
-  contactPhoneNumber: string;
-  email: string;
-  organization: number;
-}
+import { UserRoles } from "../roles/user-roles.model";
+import { Role } from "../roles/roles.model";
 
 @Table({tableName: 'users', createdAt: false, updatedAt: false})
-export class User extends Model<User, UserCreationAttrs> {
+export class User extends Model<User> {
 
   @ApiProperty({example: '1', description: 'Уникальный идентификатор'})
   @Column({type: DataType.BIGINT, unique: true, autoIncrement: true, primaryKey: true})
@@ -28,10 +18,6 @@ export class User extends Model<User, UserCreationAttrs> {
   @ApiProperty({example: '1234567', description: 'Пароль пользователя'})
   @Column({type: DataType.STRING, allowNull: false})
   password: string;
-
-  @ApiProperty({example: 'USER', description: 'Роль пользователя в системе'})
-  @Column({type: DataType.STRING, allowNull: false})
-  role: string;
 
   @ApiProperty({example: 'Жадан', description: 'Фамилия пользователя'})
   @Column({type: DataType.STRING, allowNull: false})
@@ -61,4 +47,7 @@ export class User extends Model<User, UserCreationAttrs> {
   @ForeignKey(() => Organization)
   @Column({type: DataType.BIGINT, allowNull: false})
   organization: bigint;
+
+  @BelongsToMany(() => Role, () => UserRoles)
+  roles: Role[];
 }
