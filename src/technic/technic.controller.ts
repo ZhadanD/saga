@@ -12,16 +12,16 @@ export class TechnicController {
   constructor(private technicService: TechnicService) {}
 
   @ApiOperation({summary: 'Создать самоходную технику'})
-  @ApiResponse({status: 200})
-  @UsePipes(ValidationPipe)
+  @ApiResponse({status: 200, type: CreateSelfPropelledVehicleDto})
+  @UsePipes(ValidationPipe) // TODO добавить guard
   @Post('/create_self_propelled_vehicle')
   createSelfPropelledVehicle(@Body() dto: CreateSelfPropelledVehicleDto): Promise<CreateSelfPropelledVehicleDto> {
     return this.technicService.createSelfPropelledVehicle(dto);
   }
 
   @ApiOperation({summary: 'Создать прицепную технику'})
-  @ApiResponse({status: 200})
-  @UsePipes(ValidationPipe)
+  @ApiResponse({status: 200, type: CreateTrailedVehiclesDto})
+  @UsePipes(ValidationPipe) // TODO добавить guard
   @Post('/create_trailed_vehicles')
   createTrailedVehicles(@Body() dto: CreateTrailedVehiclesDto): Promise<CreateTrailedVehiclesDto> {
     return this.technicService.createTrailedVehicles(dto);

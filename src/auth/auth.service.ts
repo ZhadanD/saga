@@ -3,13 +3,14 @@ import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from "../users/dto/createUser.dto";
+import { User } from "../users/users.model";
 
 @Injectable()
 export class AuthService {
 
   constructor(private usersService: UsersService, private jwtService: JwtService) {}
 
-  async validateUser(login: string, pass: string): Promise<any> {
+  async validateUser(login: string, pass: string): Promise<User | null> {
     const user = await this.usersService.getUserByLogin(login);
 
     if(user) {
@@ -42,7 +43,7 @@ export class AuthService {
     return this.generateToken(user);
   }
 
-  async generateToken(user: any) {
+  async generateToken(user: any): Promise<{access_token: string}> {
     const payload = { login: user.login, sub: user.id };
 
     return {access_token: this.jwtService.sign(payload)};
